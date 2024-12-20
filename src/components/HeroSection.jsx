@@ -96,7 +96,7 @@ greet()
 
       {/* Copyright */}
       <div className="absolute bottom-8 right-4 lg:right-16 text-sm text-gray-600">
-        © THE LEARNER 2017-2021
+        © THE SIMPLY LANG 2024-2026
       </div>
 
     </div>

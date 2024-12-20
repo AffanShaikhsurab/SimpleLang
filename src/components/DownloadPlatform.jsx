@@ -1,17 +1,15 @@
 import React from 'react';
-import { ArrowRight, Apple, Server , AppWindow } from 'lucide-react';
+import { ArrowRight, Apple, Server, AppWindow } from 'lucide-react';
 
 const DownloadPlatform = () => {
   return (
     <div className="w-full max-w-4xl mx-auto p-8">
       
       {/* Main container with border and background */}
-      <div className="border  rounded-lg  p-8 relative">
-        
+      <div className="border rounded-lg p-8 relative">
         
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 grid grid-cols-12 gap-4 p-4">
-          
           {Array(144).fill(null).map((_, i) => (
             <div key={i} className="border-pink-100 border-t border-l" />
           ))}
@@ -35,7 +33,16 @@ const DownloadPlatform = () => {
             <div className="bg-pink-100/60 p-4 rounded-md">
               <Apple className="w-6 h-6 text-gray-800" />
             </div>
-            <div className="bg-pink-100/60 p-4 rounded-md">
+            <div
+              onClick={() => {
+                // Trigger the download of the installer
+                const link = document.createElement('a');
+                link.href = '../download/SimplyLangInstaller.exe'; // Path to the .exe file
+                link.download = 'SimplyLangInstaller.exe'; // Filename for download
+                link.click(); // Trigger the download
+              }}
+              className="bg-pink-100/60 p-4 rounded-md cursor-pointer" // Added cursor-pointer here
+            >
               <AppWindow className="w-6 h-6 text-gray-800" />
             </div>
             <div className="bg-pink-100/60 p-4 rounded-md">
@@ -44,8 +51,6 @@ const DownloadPlatform = () => {
           </div>
         </div>
       </div>
-      
-  
     </div>
   );
 };

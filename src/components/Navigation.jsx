@@ -6,10 +6,9 @@ const Navigation = ({ showDocs, setShowDocs }) => {
   return (
     <nav className="border-b border-gray-200">
       {/* Top Bar */}
-      <div className="flex items-center justify-between p-4 md:p-6 bg-white">
+      <div className="flex items-center justify-between p-4 md:p-0 bg-white">
         {/* Logo */}
-        <div className="text-2xl font-bold">UUU</div>
-
+          
         {/* Hamburger Menu Button for Mobile */}
         <button
           className="md:hidden text-gray-700 focus:outline-none"
