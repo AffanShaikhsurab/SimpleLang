@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Apple, Server , AppWindow } from 'lucide-react';
+import { ArrowRight, Apple, Server , Window } from 'lucide-react';
 
 const DownloadPlatform = () => {
   return (
@@ -36,7 +36,7 @@ const DownloadPlatform = () => {
               <Apple className="w-6 h-6 text-gray-800" />
             </div>
             <div className="bg-pink-100/60 p-4 rounded-md">
-              <AppWindow className="w-6 h-6 text-gray-800" />
+              <Window className="w-6 h-6 text-gray-800" />
             </div>
             <div className="bg-pink-100/60 p-4 rounded-md">
               <Server className="w-6 h-6 text-gray-800" />
