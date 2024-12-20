@@ -476,7 +476,7 @@ oops
         )
       }
     };
-   //  Convert sections object to array for easier navigation
+   Note :  Convert sections object to array for easier navigation
    const sectionKeys = Object.keys(sections);
    const currentIndex = sectionKeys.indexOf(activeSection);
  

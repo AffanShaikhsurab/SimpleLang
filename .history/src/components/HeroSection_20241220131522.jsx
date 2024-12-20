@@ -1,41 +1,49 @@
 import React from 'react';
 import { Play } from 'lucide-react';
-import { Typewriter } from 'react-simple-typewriter'
+import Typewriter from 'typewriter-effect';
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-screen ">
-         
-         <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
-         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div></div>
-      {/* Navigation */}
+    <div className="relative min-h-screen bg-gray-50">
 
-      
+      {/* Background with Grid and Decorative Circle */}
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+      </div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 lg:px-16 pt-12 lg:pt-24">
         <div className="max-w-2xl">
-          <div className="text-sm font-medium text-gray-600 mb-8 tracking-wide">
+          
+          {/* Tagline */}
+          <div className="text-sm font-medium text-gray-600 mb-8 tracking-wide uppercase">
             — YOUR BEST CHOICE
           </div>
-           
-          <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
+          
+          {/* Typewriter Effect */}
           <Typewriter
-                        words={['Create', 'Innovate', 'Inspire']}
-                        loop={true}
-                        cursor
-                        cursorStyle="_"
-                        typeSpeed={80}
-                        deleteSpeed={60}
-                        delaySpeed={1200}
-                      />            <br />
-            in <span className="underline decoration-2">simple</span> words
+            words={['Create', 'Innovate', 'Inspire']}
+            loop={true}
+            cursor
+            cursorStyle="_"
+            typeSpeed={80}
+            deleteSpeed={60}
+            delaySpeed={1200}
+          />
+
+          {/* Main Heading */}
+          <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-gray-900 mb-6">
+            in <span className="underline decoration-2 text-fuchsia-500">simple</span> words
           </h1>
+
+          {/* Tagline */}
           <p className="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
-          SimplyLang: Empowering the Future, One Word at a Time.
+            SimplyLang: Empowering the Future, One Word at a Time.
           </p>
+
+          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-            <button className="bg-black text-white px-8 py-4 rounded hover:bg-black/90 transition-colors text-sm">
+            <button className="bg-fuchsia-500 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-fuchsia-600 transition-colors text-sm font-medium">
               Learn more
             </button>
             <button className="flex items-center justify-center space-x-3 px-8 py-4 text-sm hover:bg-black/5 rounded transition-colors">
@@ -45,9 +53,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
-      {/* Stats */}
-     
 
       {/* Code Preview */}
       <div className="hidden lg:block absolute right-16 top-24 w-96">
@@ -83,25 +88,14 @@ greet()
 `}
           </pre>
         </div>
-
-        {/* Testimonial */}
-       
       </div>
-
-      {/* Center Decoration */}
-      <div className="absolute left-1/2 bottom-8 lg:bottom-32 transform -translate-x-1/2">
-        
-      </div>
-
-      
 
       {/* Copyright */}
       <div className="absolute bottom-8 right-4 lg:right-16 text-sm text-gray-600">
-        © THE SIMPLY LANG 2024-2026
+        © SimplyLang 2024-2026
       </div>
-
     </div>
   );
 };
 
-export default HeroSection
+export default HeroSection;

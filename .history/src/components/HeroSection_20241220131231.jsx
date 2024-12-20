@@ -1,6 +1,5 @@
 import React from 'react';
 import { Play } from 'lucide-react';
-import { Typewriter } from 'react-simple-typewriter'
 
 const HeroSection = () => {
   return (
@@ -18,17 +17,9 @@ const HeroSection = () => {
           <div className="text-sm font-medium text-gray-600 mb-8 tracking-wide">
             — YOUR BEST CHOICE
           </div>
-           
           <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-6">
-          <Typewriter
-                        words={['Create', 'Innovate', 'Inspire']}
-                        loop={true}
-                        cursor
-                        cursorStyle="_"
-                        typeSpeed={80}
-                        deleteSpeed={60}
-                        delaySpeed={1200}
-                      />            <br />
+            Programming
+            <br />
             in <span className="underline decoration-2">simple</span> words
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
