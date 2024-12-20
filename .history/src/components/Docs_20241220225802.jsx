@@ -70,10 +70,8 @@ Note :  Now it's 90! .`}
 my_numbers is 1, 2, 3, 4, 5
 
 Note :  Getting things from your list .
-first_number is my_numbers[0]     
-Note :  Gets 1 .
-second_number is my_numbers at 1  
-Note :  Gets 2 .
+first_number is my_numbers[0]     Note :  Gets 1
+second_number is my_numbers at 1  Note :  Gets 2
 
 Note :  Finding out how long your list is .
 list_size is length of my_numbers
@@ -205,12 +203,10 @@ otherwise
 friends is Name "Tom", Age 10, Grade 5
 
 Note :  Looking up values .
-toms_age is Age of friends    
-Note :  Gets 10 .
+toms_age is Age of friends    Note :  Gets 10
 
 Note :  Changing values .
-Name of friends is "Tommy"    
-Note :  Changes Tom to Tommy  .`} 
+Name of friends is "Tommy"    Note :  Changes Tom to Tommy`} 
             />
           </SubSection>
         </DocSection>
@@ -266,12 +262,10 @@ oops
   Note :  Gets 5 .
   
   Note :  Finding remainders (modulo) .
-  leftover is 7 % 3    
-  Note :  Gets 1 .
+  leftover is 7 % 3    Note :  Gets 1
   
   Note :  Powers (like squared or cubed) .
-  power is 2 ^ 3       
-  Note :  Gets 8 (2 × 2 × 2)  .`} 
+  power is 2 ^ 3       Note :  Gets 8 (2 × 2 × 2)`} 
               />
             </SubSection>
   
@@ -283,8 +277,7 @@ oops
   Note :  Checks if a equals b .
   
   Note :  Is it different? .
-  a not equals b   
-  Note :  Checks if a is different from b  .
+  a not equals b   Note :  Checks if a is different from b
   
   Note :  Which one is bigger? .
   a > b           
@@ -328,10 +321,8 @@ oops
   Note :  Gets: 5
   
   Note :  Getting specific items .
-  first is numbers[0]      
-  Note :  Gets the first item .
-  second is numbers at 1   
-  Note :  Gets the second item  .`} 
+  first is numbers[0]      Note :  Gets the first item
+  second is numbers at 1   Note :  Gets the second item`} 
               />
             </SubSection>
           </DocSection>
@@ -417,10 +408,8 @@ oops
   
   Note :  Using the robot .
   buddy is Robot with "Buddy"
-  buddy.move(50)   
-  Note :  Buddy moved 50 steps! .
-  buddy.charge(30)  
-  Note :  Buddy charged up to 80!  .`} 
+  buddy.move(50)    Note :  Buddy moved 50 steps!
+  buddy.charge(30)  Note :  Buddy charged up to 80!`} 
               />
             </SubSection>
           </DocSection>
@@ -451,8 +440,7 @@ oops
   Note :  Updates health to 90 .
   
   Note :  Adding new information
-  Level of player is 5       
-  Note :  Adds new Level entry .
+  Level of player is 5        Note :  Adds new Level entry .
   
   Note :  Using in games .
   if Health of player <= 0 then
@@ -668,16 +656,10 @@ const TOKEN_TYPES = {
     PUNCTUATION: ['(', ')', ',', '.'],
   };
   
-const highlightCode = (code) => {
+  const highlightCode = (code) => {
     // Split code into lines while preserving line breaks
     return code.split(/(\n)/).map((line, i) => {
       if (line === '\n') return '\n';
-      
-      // Check if the line is a comment (starts with "Note" and ends with ".")
-      const isComment = line.trim().startsWith('Note') && line.trim().endsWith('.');
-      if (isComment) {
-        return <span key={i} className="text-gray-400">{line}</span>;
-      }
       
       // Match different token patterns
       const tokens = line.split(/(["'].*?["']|\s+|[.,(){}[\]|&;:]+)/).filter(Boolean);
@@ -776,7 +758,6 @@ const highlightCode = (code) => {
       </div>
     );
   };
-  
   
 
 export default Documentation;

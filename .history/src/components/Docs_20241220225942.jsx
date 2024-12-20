@@ -70,10 +70,8 @@ Note :  Now it's 90! .`}
 my_numbers is 1, 2, 3, 4, 5
 
 Note :  Getting things from your list .
-first_number is my_numbers[0]     
-Note :  Gets 1 .
-second_number is my_numbers at 1  
-Note :  Gets 2 .
+first_number is my_numbers[0]     Note :  Gets 1
+second_number is my_numbers at 1  Note :  Gets 2
 
 Note :  Finding out how long your list is .
 list_size is length of my_numbers
@@ -205,12 +203,10 @@ otherwise
 friends is Name "Tom", Age 10, Grade 5
 
 Note :  Looking up values .
-toms_age is Age of friends    
-Note :  Gets 10 .
+toms_age is Age of friends    Note :  Gets 10
 
 Note :  Changing values .
-Name of friends is "Tommy"    
-Note :  Changes Tom to Tommy  .`} 
+Name of friends is "Tommy"    Note :  Changes Tom to Tommy`} 
             />
           </SubSection>
         </DocSection>
@@ -668,16 +664,10 @@ const TOKEN_TYPES = {
     PUNCTUATION: ['(', ')', ',', '.'],
   };
   
-const highlightCode = (code) => {
+  const highlightCode = (code) => {
     // Split code into lines while preserving line breaks
     return code.split(/(\n)/).map((line, i) => {
       if (line === '\n') return '\n';
-      
-      // Check if the line is a comment (starts with "Note" and ends with ".")
-      const isComment = line.trim().startsWith('Note') && line.trim().endsWith('.');
-      if (isComment) {
-        return <span key={i} className="text-gray-400">{line}</span>;
-      }
       
       // Match different token patterns
       const tokens = line.split(/(["'].*?["']|\s+|[.,(){}[\]|&;:]+)/).filter(Boolean);
@@ -776,7 +766,6 @@ const highlightCode = (code) => {
       </div>
     );
   };
-  
   
 
 export default Documentation;

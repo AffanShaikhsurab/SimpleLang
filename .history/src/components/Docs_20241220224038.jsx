@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown,Copy, Check ,  ChevronRight, ChevronLeft  , Play, Book, Code, Box, Search, Menu, X, ArrowRight } from 'lucide-react';
+import { ChevronDown, ChevronRight, ChevronLeft  , Play, Book, Code, Box, Search, Menu, X, ArrowRight } from 'lucide-react';
 
 const Documentation = () => {
     const [activeSection, setActiveSection] = useState('getting-started');
@@ -70,10 +70,8 @@ Note :  Now it's 90! .`}
 my_numbers is 1, 2, 3, 4, 5
 
 Note :  Getting things from your list .
-first_number is my_numbers[0]     
-Note :  Gets 1 .
-second_number is my_numbers at 1  
-Note :  Gets 2 .
+first_number is my_numbers[0]     Note :  Gets 1
+second_number is my_numbers at 1  Note :  Gets 2
 
 Note :  Finding out how long your list is .
 list_size is length of my_numbers
@@ -205,12 +203,10 @@ otherwise
 friends is Name "Tom", Age 10, Grade 5
 
 Note :  Looking up values .
-toms_age is Age of friends    
-Note :  Gets 10 .
+toms_age is Age of friends    Note :  Gets 10
 
 Note :  Changing values .
-Name of friends is "Tommy"    
-Note :  Changes Tom to Tommy  .`} 
+Name of friends is "Tommy"    Note :  Changes Tom to Tommy`} 
             />
           </SubSection>
         </DocSection>
@@ -262,16 +258,13 @@ oops
   Note :  Gets 12 .
   
   Note :  Dividing .
-  result is 15 / 3    
-  Note :  Gets 5 .
+  result is 15 / 3     Note :  Gets 5
   
   Note :  Finding remainders (modulo) .
-  leftover is 7 % 3    
-  Note :  Gets 1 .
+  leftover is 7 % 3    Note :  Gets 1
   
   Note :  Powers (like squared or cubed) .
-  power is 2 ^ 3       
-  Note :  Gets 8 (2 × 2 × 2)  .`} 
+  power is 2 ^ 3       Note :  Gets 8 (2 × 2 × 2)`} 
               />
             </SubSection>
   
@@ -283,8 +276,7 @@ oops
   Note :  Checks if a equals b .
   
   Note :  Is it different? .
-  a not equals b   
-  Note :  Checks if a is different from b  .
+  a not equals b   Note :  Checks if a is different from b
   
   Note :  Which one is bigger? .
   a > b           
@@ -328,10 +320,8 @@ oops
   Note :  Gets: 5
   
   Note :  Getting specific items .
-  first is numbers[0]      
-  Note :  Gets the first item .
-  second is numbers at 1   
-  Note :  Gets the second item  .`} 
+  first is numbers[0]      Note :  Gets the first item
+  second is numbers at 1   Note :  Gets the second item`} 
               />
             </SubSection>
           </DocSection>
@@ -417,10 +407,8 @@ oops
   
   Note :  Using the robot .
   buddy is Robot with "Buddy"
-  buddy.move(50)   
-  Note :  Buddy moved 50 steps! .
-  buddy.charge(30)  
-  Note :  Buddy charged up to 80!  .`} 
+  buddy.move(50)    Note :  Buddy moved 50 steps!
+  buddy.charge(30)  Note :  Buddy charged up to 80!`} 
               />
             </SubSection>
           </DocSection>
@@ -451,8 +439,7 @@ oops
   Note :  Updates health to 90 .
   
   Note :  Adding new information
-  Level of player is 5       
-  Note :  Adds new Level entry .
+  Level of player is 5        Note :  Adds new Level entry .
   
   Note :  Using in games .
   if Health of player <= 0 then
@@ -660,123 +647,30 @@ const DocSection = ({ title, description, children }) => (
     </div>
   );
   
-
-// Token types from the lexer
-const TOKEN_TYPES = {
-    KEYWORDS : ["show", "is", "if", "then", "otherwise", "equals", "till", "do", "at", "Note", "check", "tell", "what's", "its", "does", "try", "oops", "get", "you", "see", "in", "Robo", "repeat", "times", "say", "create", "with", "arrange", "ascending", "descending", "length", "of", "stop", "return"],
-    OPERATORS: ['+', '-', '*', '/', '^', '<', '>', '=', 'not equals'],
-    PUNCTUATION: ['(', ')', ',', '.'],
-  };
-  
-const highlightCode = (code) => {
-    // Split code into lines while preserving line breaks
-    return code.split(/(\n)/).map((line, i) => {
-      if (line === '\n') return '\n';
+  const CodeExample = ({ code, title }) => (
+    <div className="relative my-4 md:my-6 rounded-xl overflow-hidden shadow-lg border border-white/30">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-gray-800/90" />
       
-      // Check if the line is a comment (starts with "Note" and ends with ".")
-      const isComment = line.trim().startsWith('Note') && line.trim().endsWith('.');
-      if (isComment) {
-        return <span key={i} className="text-gray-400">{line}</span>;
-      }
-      
-      // Match different token patterns
-      const tokens = line.split(/(["'].*?["']|\s+|[.,(){}[\]|&;:]+)/).filter(Boolean);
-      
-      return tokens.map((token, index) => {
-        // Remove whitespace from token for comparison
-        const cleanToken = token.trim();
-        
-        // Skip empty tokens or whitespace
-        if (!cleanToken) return token;
-        
-        let className = '';
-        
-        // Keywords
-        if (TOKEN_TYPES.KEYWORDS.includes(cleanToken)) {
-          className = 'text-purple-400'; // Purple for keywords
-        }
-        // Numbers
-        else if (/^\d+(\.\d+)?$/.test(cleanToken)) {
-          className = 'text-yellow-300'; // Yellow for numbers
-        }
-        // Operators
-        else if (TOKEN_TYPES.OPERATORS.some(op => cleanToken.includes(op))) {
-          className = 'text-pink-400'; // Pink for operators
-        }
-        // Punctuation
-        else if (TOKEN_TYPES.PUNCTUATION.includes(cleanToken)) {
-          className = 'text-gray-400'; // Gray for punctuation
-        }
-        // Strings
-        else if (/^["'].*["']$/.test(cleanToken)) {
-          className = 'text-green-400'; // Green for strings
-        }
-        // Variables and other identifiers
-        else if (/^[a-zA-Z_]\w*$/.test(cleanToken)) {
-          className = 'text-blue-300'; // Blue for variables
-        }
-        
-        return className ? (
-          <span key={index} className={className}>
-            {token}
-          </span>
-        ) : token;
-      });
-    });
-  };
-  
-  const CodeExample = ({ code, title }) => {
-    const [copied, setCopied] = useState(false);
-  
-    const handleCopy = async () => {
-      try {
-        await navigator.clipboard.writeText(code);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
-      } catch (err) {
-        console.error('Failed to copy:', err);
-      }
-    };
-  
-    return (
-      <div className="relative my-4 md:my-6 rounded-xl overflow-hidden shadow-lg border border-white/30">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-gray-800/90" />
-        
-        {title && (
-          <div className="relative px-4 md:px-6 py-2 md:py-3 border-b border-white/10">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <div className="hidden md:flex space-x-1">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
-                </div>
-                <span className="text-xs md:text-sm font-medium text-gray-300">{title}</span>
-              </div>
-              <button
-                onClick={handleCopy}
-                className="p-2 rounded-lg hover:bg-white/10 transition-colors"
-                aria-label={copied ? "Copied!" : "Copy code"}
-              >
-                {copied ? (
-                  <Check className="w-4 h-4 text-green-400" />
-                ) : (
-                  <Copy className="w-4 h-4 text-gray-400" />
-                )}
-              </button>
+      {title && (
+        <div className="relative px-4 md:px-6 py-2 md:py-3 border-b border-white/10">
+          <div className="flex items-center space-x-2">
+            <div className="hidden md:flex space-x-1">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
+              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
+              <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
             </div>
+            <span className="text-xs md:text-sm font-medium text-gray-300">{title}</span>
           </div>
-        )}
-        
-        <div className="relative p-4 md:p-6 overflow-x-auto">
-          <pre className="font-mono text-xs md:text-sm text-gray-100 whitespace-pre">
-            {highlightCode(code)}
-          </pre>
         </div>
+      )}
+      
+      <div className="relative p-4 md:p-6 overflow-x-auto">
+        <pre className="font-mono text-xs md:text-sm text-gray-100 whitespace-pre-wrap break-words">
+          {code}
+        </pre>
       </div>
-    );
-  };
-  
+    </div>
+  );
   
 
 export default Documentation;

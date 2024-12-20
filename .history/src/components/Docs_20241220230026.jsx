@@ -668,16 +668,10 @@ const TOKEN_TYPES = {
     PUNCTUATION: ['(', ')', ',', '.'],
   };
   
-const highlightCode = (code) => {
+  const highlightCode = (code) => {
     // Split code into lines while preserving line breaks
     return code.split(/(\n)/).map((line, i) => {
       if (line === '\n') return '\n';
-      
-      // Check if the line is a comment (starts with "Note" and ends with ".")
-      const isComment = line.trim().startsWith('Note') && line.trim().endsWith('.');
-      if (isComment) {
-        return <span key={i} className="text-gray-400">{line}</span>;
-      }
       
       // Match different token patterns
       const tokens = line.split(/(["'].*?["']|\s+|[.,(){}[\]|&;:]+)/).filter(Boolean);
@@ -776,7 +770,6 @@ const highlightCode = (code) => {
       </div>
     );
   };
-  
   
 
 export default Documentation;
