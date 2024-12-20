@@ -7,8 +7,7 @@ import WhoIsItFor from "./components/WhoIsItFor.jsx";
 import JourneySection from "./components/JourneySection.jsx";
 import CallToAction from "./components/CallToAction.jsx";
 import DownloadPlatform from "./components/DownloadPlatform.jsx";
-import Documentation from "./components/Docs.jsx";
-
+import Documentation from "./components/documentation.jsx";
 
 const App = () => {
   const [showDocs, setShowDocs] = useState(true);
